@@ -20,8 +20,9 @@ public class ChartLineView extends View {
 
     private DrawChartLineHelper drawHelper;
     private boolean showCell;
-    private int axisColor, rulerColor, backgroundColor, lineValueColor;
-    private int axisSize, axisValueSize, lineValueSize;
+    private int axisColor, rulerColor, backgroundColor, lineValueColor, nameColor;
+    private int axisSize, axisValueSize, lineValueSize, nameSize;
+    private String name;
 
     public ChartLineView(Context context) {
         super(context);
@@ -82,12 +83,18 @@ public class ChartLineView extends View {
             axisSize = typedArray.getDimensionPixelSize(R.styleable.ChartLineView_chart_line_size_axis, 4);
             axisValueSize = typedArray.getDimensionPixelSize(R.styleable.ChartLineView_chart_line_size_axis_value, 15);
             lineValueSize = typedArray.getDimensionPixelSize(R.styleable.ChartLineView_chart_line_size_line_value, 3);
+            name = typedArray.getString(R.styleable.ChartLineView_chart_line_name);
+            nameColor = typedArray.getColor(R.styleable.ChartLineView_chart_line_color_name, 0);
+            nameSize = typedArray.getDimensionPixelSize(R.styleable.ChartLineView_chart_line_size_name, 50);
             typedArray.recycle();
         }
 
         drawHelper = new DrawChartLineHelper();
         drawHelper.initPaintColor(axisColor, rulerColor, axisColor, lineValueColor, backgroundColor);
         drawHelper.initPainSize(axisSize, axisValueSize, lineValueSize);
+        drawHelper.initNameSize(nameSize);
+        drawHelper.initNameChart(name);
+        drawHelper.initNameColor(nameColor);
     }
 
     /**

@@ -16,7 +16,7 @@ import java.util.List;
  */
 class DrawChartLineHelper {
 
-    private Paint paintAxis, paintRuler, paintAxisValue, paintLineValue, paintBackground;
+    private Paint paintAxis, paintRuler, paintAxisValue, paintLineValue, paintBackground, paintTitle;
     private RectF rectFAxisX, rectFAxisY, rectFRulerX, rectFRulerY, rectFBackground;
     private Rect boundText;
 
@@ -25,12 +25,15 @@ class DrawChartLineHelper {
     private int axisSize, rulerSize;
     private int widthView, heightView, axisX, axisY, spaceForTitle;
     private int spaceAxis;
-    private float maxAxisValueX, maxDataX, maxAxisValueY, maxDataY;
+    private float maxDataY;
+    private String chartTitle;
 
     public DrawChartLineHelper() {
 
         boundText = new Rect();
         paintAxis = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintTitle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintTitle.setTextAlign(Paint.Align.LEFT);
         paintRuler = new Paint(Paint.ANTI_ALIAS_FLAG);
         paintAxisValue = new Paint(Paint.ANTI_ALIAS_FLAG);
         paintBackground = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -143,6 +146,12 @@ class DrawChartLineHelper {
         }
     }
 
+    private void drawName(Canvas canvas) {
+
+        paintAxisValue.getTextBounds(chartTitle, 0, chartTitle.length(), boundText);
+        canvas.drawText(chartTitle, ((widthView - spaceAxis) / 2) - (boundText.width() / 2) + axisSize, spaceForTitle / 2 + (spaceAxis / 3), paintTitle);
+    }
+
     void setWidthHeightView(int width, int height) {
 
         widthView = width;
@@ -169,6 +178,21 @@ class DrawChartLineHelper {
         paintAxisValue.setStrokeWidth(size[2]);
     }
 
+    void initNameSize(int size) {
+
+        paintTitle.setTextSize(size);
+    }
+
+    void initNameColor(int color) {
+
+        paintTitle.setColor(color);
+    }
+
+    void initNameChart(String name) {
+
+        this.chartTitle = name;
+    }
+
     void setChartData(float valueX, float valueY) {
 
         chartData.add(new ChartLineData(valueX, valueX, valueY));
@@ -187,7 +211,6 @@ class DrawChartLineHelper {
             try {
 
                 lengthData = chartData.size();
-                maxAxisValueX = getMaxValueIntoChartData(ChartLineData.VALUE_X);
                 maxDataY = getMaxValueIntoChartData(ChartLineData.VALUE_Y);
                 calculatorChartData();
 
@@ -199,6 +222,7 @@ class DrawChartLineHelper {
                 drawBackground(canvas);
                 drawAxis(canvas);
                 drawDataChart(canvas);
+                drawName(canvas);
             }
         }
     }
