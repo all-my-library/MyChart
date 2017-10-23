@@ -147,4 +147,40 @@ public class ChartLineView extends View {
         drawHelper.initPainSize(axisSize, axisValueSize, lineValueSize);
         showChartLine();
     }
+
+    /**
+     * call to set name's chart
+     *
+     * @param name
+     */
+    public void setNameChart(String name) {
+
+        this.name = name;
+        drawHelper.initNameChart(name);
+        invalidate();
+    }
+
+    /**
+     * call to set name's color
+     *
+     * @param color
+     */
+    public void setNameChartColor(int color) {
+
+        this.nameColor = color;
+        drawHelper.initNameColor(nameColor);
+        invalidate();
+    }
+
+    /**
+     * call to set name's size
+     *
+     * @param size
+     */
+    public void setNameChartSize(int size) {
+
+        this.nameSize = size;
+        drawHelper.initNameSize(size);
+        invalidate();
+    }
 }
