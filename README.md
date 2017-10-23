@@ -1,5 +1,5 @@
 # VERSION JAR
-Link file JAR: <a href="https://github.com/all-my-library/MyProgress/tree/master/library/myjar_v1" title="">ProgressLibrary v1</a>
+Link file JAR: <a href="https://github.com/all-my-library/MyChart/tree/master/library/myjar_v1" title="">ChartLibrary v1</a>
 # HOW TO USE
 <h3>ChartLineView</h3>
 <img src="https://github.com/all-my-library/MyChart/blob/master/art/line_chart.png"></a>
