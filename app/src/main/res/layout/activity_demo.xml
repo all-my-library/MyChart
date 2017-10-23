@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="mychart.leduyhung.com.mychart.DemoActivity">
+
+    <com.leduyhung.chartlibrary.line.ChartLineView
+        android:id="@+id/chartlineview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:chart_line_color_axis="#FFFFFF"
+        custom:chart_line_color_line_value="#FFFFFF"
+        custom:chart_line_color_ruler="#37ffffff"/>
+</LinearLayout>
