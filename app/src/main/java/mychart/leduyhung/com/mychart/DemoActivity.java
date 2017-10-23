@@ -46,7 +46,7 @@ public class DemoActivity extends AppCompatActivity {
                 chartLineView.setChartData(8, 44);
                 chartLineView.setChartData(9, 80);
                 chartLineView.setChartData(10, 40);
-                chartLineView.showChartLine();
+                chartLineView.setColorChart(getResources().getColor(R.color.color_white), getResources().getColor(R.color.color_white),getResources().getColor(R.color.color_white), getResources().getColor(R.color.color_transparent));
             }
         });
     }

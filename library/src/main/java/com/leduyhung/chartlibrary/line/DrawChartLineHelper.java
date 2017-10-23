@@ -125,7 +125,7 @@ class DrawChartLineHelper {
 
         paintAxisValue.getTextBounds(chartData.get(0).getaTextY() + "", 0, (chartData.get(0).getaTextY() + "").length(), boundText);
         canvas.drawText(chartData.get(0).getaTextX() + "", chartData.get(0).getaX() - (boundText.width() / 2), heightView - (spaceAxis / 2), paintAxisValue);
-        canvas.drawText(chartData.get(0).getaTextY() + "", spaceAxis / 2, chartData.get(0).getaY() + (boundText.height() / 2), paintAxisValue);
+        canvas.drawText(chartData.get(0).getaTextY() + "", spaceAxis / 3, chartData.get(0).getaY() + (boundText.height() / 2), paintAxisValue);
         for (int i = 1; i < lengthData; i++) {
 
             paintAxisValue.getTextBounds(chartData.get(i).getaTextX() + "", 0, (chartData.get(i).getaTextX() + "").length(), boundText);

@@ -19,7 +19,7 @@ import java.util.List;
 public class ChartLineView extends View {
 
     private DrawChartLineHelper drawHelper;
-    private boolean showCell, isShowCHart;
+    private boolean showCell;
     private int axisColor, rulerColor, backgroundColor, lineValueColor;
     private int axisSize, axisValueSize, lineValueSize;
 
@@ -54,8 +54,7 @@ public class ChartLineView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (isShowCHart)
-            drawHelper.startDrawChart(canvas);
+        drawHelper.startDrawChart(canvas);
     }
 
     @Override
@@ -112,7 +111,33 @@ public class ChartLineView extends View {
 
     public void showChartLine() {
 
-        isShowCHart = true;
         invalidate();
+    }
+
+    /**
+     * call to change color chart
+     *
+     * @param colorAxis
+     * @param colorRuler
+     * @param colorLineValue
+     * @param background
+     */
+    public void setColorChart(int colorAxis, int colorRuler, int colorLineValue, int background) {
+
+        drawHelper.initPaintColor(colorAxis, colorRuler, colorAxis, colorLineValue, background);
+        showChartLine();
+    }
+
+    /**
+     * call to change size chart
+     *
+     * @param axisSize
+     * @param axisValueSize
+     * @param lineValueSize
+     */
+    public void setSizeChart(int axisSize, int axisValueSize, int lineValueSize) {
+
+        drawHelper.initPainSize(axisSize, axisValueSize, lineValueSize);
+        showChartLine();
     }
 }

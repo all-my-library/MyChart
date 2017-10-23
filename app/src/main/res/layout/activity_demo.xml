@@ -12,7 +12,11 @@
         android:id="@+id/chartlineview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        custom:chart_line_color_background="@color/color_transparent"
         custom:chart_line_color_axis="#FFFFFF"
         custom:chart_line_color_line_value="#FFFFFF"
-        custom:chart_line_color_ruler="#37ffffff"/>
+        custom:chart_line_color_ruler="#37ffffff"
+        custom:chart_line_size_axis="2dp"
+        custom:chart_line_size_axis_value="10sp"
+        custom:chart_line_size_line_value="1dp"/>
 </LinearLayout>

@@ -5,8 +5,8 @@
         <attr name="chart_line_color_ruler" format="color"/>
         <attr name="chart_line_color_line_value" format="color"/>
         <attr name="chart_line_color_background" format="color"/>
-        <attr name="chart_line_size_axis" format="integer"/>
-        <attr name="chart_line_size_axis_value" format="integer"/>
-        <attr name="chart_line_size_line_value" format="integer"/>
+        <attr name="chart_line_size_axis" format="dimension"/>
+        <attr name="chart_line_size_axis_value" format="dimension"/>
+        <attr name="chart_line_size_line_value" format="dimension"/>
     </declare-styleable>
 </resources>
