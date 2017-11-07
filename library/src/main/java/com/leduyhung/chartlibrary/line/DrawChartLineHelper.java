@@ -8,6 +8,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,7 @@ class DrawChartLineHelper {
     private int spaceAxis;
     private float maxDataY;
     private String chartTitle;
+    private boolean hasName;
 
     public DrawChartLineHelper() {
 
@@ -77,6 +80,7 @@ class DrawChartLineHelper {
 
     private void calculatorChartData() {
 
+        float dataFormat;
         chartData.get(0).setaTextY(0);
         chartData.get(0).setaX(spaceAxis);
         chartData.get(0).setaY(heightView - spaceAxis);
@@ -126,19 +130,19 @@ class DrawChartLineHelper {
 
     private void drawDataChart(Canvas canvas) {
 
-        paintAxisValue.getTextBounds(chartData.get(0).getaTextY() + "", 0, (chartData.get(0).getaTextY() + "").length(), boundText);
+        paintAxisValue.getTextBounds(String.format("%.1f", chartData.get(0).getaTextY()), 0, String.format("%.1f", chartData.get(0).getaTextY()).length(), boundText);
         canvas.drawText(chartData.get(0).getaTextX() + "", chartData.get(0).getaX() - (boundText.width() / 2), heightView - (spaceAxis / 2), paintAxisValue);
         canvas.drawText(chartData.get(0).getaTextY() + "", spaceAxis / 3, chartData.get(0).getaY() + (boundText.height() / 2), paintAxisValue);
         for (int i = 1; i < lengthData; i++) {
 
             paintAxisValue.getTextBounds(chartData.get(i).getaTextX() + "", 0, (chartData.get(i).getaTextX() + "").length(), boundText);
-            rectFRulerY.set(chartData.get(i).getaX() - rulerSize, chartData.get(7).getaY(), chartData.get(i).getaX(), heightView - spaceAxis);
+            rectFRulerY.set(chartData.get(i).getaX() - rulerSize, chartData.get(hasName? 7:6).getaY(), chartData.get(i).getaX(), (spaceAxis / 3) + axisY + axisSize);
             canvas.drawText(chartData.get(i).getaTextX() + "", chartData.get(i).getaX() - (boundText.width() / 2), heightView - (spaceAxis / 2), paintAxisValue);
             if (i < 8) {
 
                 rectFRulerX.set(spaceAxis, chartData.get(i).getaY(), spaceAxis + axisX, chartData.get(i).getaY() + rulerSize);
                 canvas.drawRect(rectFRulerX, paintRuler);
-                canvas.drawText(chartData.get(i).getaTextY() + "", spaceAxis / 3, chartData.get(i).getaY() + (boundText.height() / 2), paintAxisValue);
+                canvas.drawText(String.format("%.1f", chartData.get(i).getaTextY()), spaceAxis / 3, chartData.get(i).getaY() + (boundText.height() / 2), paintAxisValue);
             }
             canvas.drawRect(rectFRulerY, paintRuler);
             canvas.drawLine(chartData.get(i - 1).getaX() - (rulerSize / 2), chartData.get(i - 1).getcY(), chartData.get(i).getaX() - (rulerSize / 2), chartData.get(i).getcY(), paintLineValue);
@@ -152,13 +156,22 @@ class DrawChartLineHelper {
         canvas.drawText(chartTitle, ((widthView - spaceAxis) / 2) - (boundText.width() / 2) + axisSize, spaceForTitle / 2 + (spaceAxis / 3), paintTitle);
     }
 
+    void setHasName(Boolean hasName) {
+
+        this.hasName = hasName;
+    }
+
     void setWidthHeightView(int width, int height) {
 
         widthView = width;
         heightView = height;
         axisX = width - (spaceAxis + (spaceAxis / 3));
         axisY = height - (spaceAxis + (spaceAxis / 3));
-        spaceForTitle = (13 * axisY / 30);
+        if (hasName)
+            spaceForTitle = (13 * axisY / 30);
+        else
+            spaceForTitle = 0;
+
         rectFBackground.set(0, 0, widthView, heightView);
     }
 
@@ -222,7 +235,8 @@ class DrawChartLineHelper {
                 drawBackground(canvas);
                 drawAxis(canvas);
                 drawDataChart(canvas);
-                drawName(canvas);
+                if (hasName)
+                    drawName(canvas);
             }
         }
     }

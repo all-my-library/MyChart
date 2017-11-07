@@ -19,7 +19,7 @@ import java.util.List;
 public class ChartLineView extends View {
 
     private DrawChartLineHelper drawHelper;
-    private boolean showCell;
+    private boolean showCell, hasName;
     private int axisColor, rulerColor, backgroundColor, lineValueColor, nameColor;
     private int axisSize, axisValueSize, lineValueSize, nameSize;
     private String name;
@@ -86,10 +86,12 @@ public class ChartLineView extends View {
             name = typedArray.getString(R.styleable.ChartLineView_chart_line_name);
             nameColor = typedArray.getColor(R.styleable.ChartLineView_chart_line_color_name, 0);
             nameSize = typedArray.getDimensionPixelSize(R.styleable.ChartLineView_chart_line_size_name, 50);
+            hasName = typedArray.getBoolean(R.styleable.ChartLineView_chart_line_has_name, false);
             typedArray.recycle();
         }
 
         drawHelper = new DrawChartLineHelper();
+        drawHelper.setHasName(hasName);
         drawHelper.initPaintColor(axisColor, rulerColor, axisColor, lineValueColor, backgroundColor);
         drawHelper.initPainSize(axisSize, axisValueSize, lineValueSize);
         drawHelper.initNameSize(nameSize);
