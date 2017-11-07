@@ -15,6 +15,7 @@ Link file JAR: <a href="https://github.com/all-my-library/MyChart/tree/master/li
         custom:chart_line_size_axis="2dp"
         custom:chart_line_size_axis_value="10sp"
         custom:chart_line_size_line_value="1dp"
+        custom:chart_line_has_name="false"
         custom:chart_line_name="Biểu đồ tiền lương"
         custom:chart_line_color_name="@color/color_white"
         custom:chart_line_size_name="18sp"
