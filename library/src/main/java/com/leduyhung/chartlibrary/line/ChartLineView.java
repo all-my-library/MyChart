@@ -19,7 +19,7 @@ import java.util.List;
 public class ChartLineView extends View {
 
     private DrawChartLineHelper drawHelper;
-    private boolean showCell, hasName;
+    private boolean hasName;
     private int axisColor, rulerColor, backgroundColor, lineValueColor, nameColor;
     private int axisSize, axisValueSize, lineValueSize, nameSize;
     private String name;

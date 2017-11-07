@@ -80,7 +80,6 @@ class DrawChartLineHelper {
 
     private void calculatorChartData() {
 
-        float dataFormat;
         chartData.get(0).setaTextY(0);
         chartData.get(0).setaX(spaceAxis);
         chartData.get(0).setaY(heightView - spaceAxis);
