@@ -1,5 +1,5 @@
-# VERSION JAR
-Link file JAR: <a href="https://github.com/all-my-library/MyChart/tree/master/library/myjar_v1" title="">ChartLibrary v1</a>
+# COMPILE
+compile 'leduyhung.my.view:my-chart:0.0.1'
 # HOW TO USE
 <h3>ChartLineView</h3>
 <img src="https://github.com/all-my-library/MyChart/blob/master/art/line_chart.png"></a>
