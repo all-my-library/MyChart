@@ -1,4 +1,4 @@
-package com.leduyhung.chartlibrary.line;
+package leduyhung.view.mychart.line;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,8 +8,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 

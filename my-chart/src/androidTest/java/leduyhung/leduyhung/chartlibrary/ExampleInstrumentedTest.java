@@ -1,4 +1,4 @@
-package com.leduyhung.chartlibrary;
+package leduyhung.leduyhung.chartlibrary;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

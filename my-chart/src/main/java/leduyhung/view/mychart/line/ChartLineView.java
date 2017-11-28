@@ -1,16 +1,12 @@
-package com.leduyhung.chartlibrary.line;
+package leduyhung.view.mychart.line;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.leduyhung.chartlibrary.R;
-
-import java.util.List;
+import leduyhung.view.mychart.R;
 
 /**
  * Created by hungleduy on 10/18/17.
@@ -29,12 +25,12 @@ public class ChartLineView extends View {
         getAttribute(context, null);
     }
 
-    public ChartLineView(Context context, @Nullable AttributeSet attrs) {
+    public ChartLineView(Context context, AttributeSet attrs) {
         super(context, attrs);
         getAttribute(context, attrs);
     }
 
-    public ChartLineView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ChartLineView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         getAttribute(context, attrs);
     }
@@ -59,7 +55,7 @@ public class ChartLineView extends View {
     }
 
     @Override
-    protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
+    protected void onVisibilityChanged(View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
 
     }

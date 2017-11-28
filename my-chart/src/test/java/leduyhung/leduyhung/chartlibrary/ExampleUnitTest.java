@@ -1,4 +1,4 @@
-package com.leduyhung.chartlibrary;
+package leduyhung.leduyhung.chartlibrary;
 
 import org.junit.Test;
 

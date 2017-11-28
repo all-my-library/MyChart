@@ -1,4 +1,4 @@
-package com.leduyhung.chartlibrary.line;
+package leduyhung.view.mychart.line;
 
 /**
  * Created by hungleduy on 10/18/17.

@@ -8,7 +8,7 @@
     android:background="@color/colorPrimaryDark"
     tools:context="mychart.leduyhung.com.mychart.DemoActivity">
 
-    <com.leduyhung.chartlibrary.line.ChartLineView
+    <leduyhung.view.mychart.line.ChartLineView
         android:id="@+id/chartlineview"
         android:layout_width="match_parent"
         android:layout_height="250dp"
