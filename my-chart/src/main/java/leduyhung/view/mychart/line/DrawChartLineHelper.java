@@ -133,7 +133,7 @@ class DrawChartLineHelper {
         for (int i = 1; i < lengthData; i++) {
 
             paintAxisValue.getTextBounds(chartData.get(i).getaTextX() + "", 0, (chartData.get(i).getaTextX() + "").length(), boundText);
-            rectFRulerY.set(chartData.get(i).getaX() - rulerSize, chartData.get(hasName? 7:6).getaY(), chartData.get(i).getaX(), (spaceAxis / 3) + axisY + axisSize);
+            rectFRulerY.set(chartData.get(i).getaX() - rulerSize, chartData.get(hasName ? 7 : 6).getaY(), chartData.get(i).getaX(), (spaceAxis / 3) + axisY + axisSize);
             canvas.drawText(chartData.get(i).getaTextX() + "", chartData.get(i).getaX() - (boundText.width() / 2), heightView - (spaceAxis / 2), paintAxisValue);
             if (i < 8) {
 
@@ -217,6 +217,8 @@ class DrawChartLineHelper {
     void startDrawChart(Canvas canvas) {
 
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.ADD);
+        drawBackground(canvas);
+        drawAxis(canvas);
         if (chartData != null && chartData.size() > 0) {
             try {
 
@@ -229,8 +231,6 @@ class DrawChartLineHelper {
                 Log.e("ChartLineView", "drawChart: -> chart data is null. \n\r" + e.toString());
             } finally {
 
-                drawBackground(canvas);
-                drawAxis(canvas);
                 drawDataChart(canvas);
                 if (hasName)
                     drawName(canvas);

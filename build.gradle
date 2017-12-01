@@ -22,9 +22,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://dl.bintray.com/leduyhung251192/maven/'
-        }
     }
 }
 
