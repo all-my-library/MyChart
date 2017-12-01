@@ -60,12 +60,12 @@ public class ChartLineView extends View {
 
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-
-        drawHelper = null;
-    }
+//    @Override
+//    protected void onDetachedFromWindow() {
+//        super.onDetachedFromWindow();
+//
+//        drawHelper = null;
+//    }
 
     private void getAttribute(Context context, AttributeSet attrs) {
 
